@@ -1,5 +1,6 @@
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
+import Navigation from './components/Navigation';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
@@ -7,14 +8,8 @@ import Home from './pages/Home';
 function App() {
   return (
     <div className='App'>
-      <nav>
-        <Link className='nav-link' to='/home'>
-          Home page
-        </Link>
-        <Link to='/about'>About page</Link>
-        <Link to='/contact'>Contact page</Link>
-      </nav>
-      <Route path='/home'>
+      <Navigation />
+      <Route path='/' exact>
         <Home />
       </Route>
       <Route path='/about'>
