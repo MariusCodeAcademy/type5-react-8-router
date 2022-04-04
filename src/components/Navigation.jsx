@@ -16,6 +16,11 @@ const navData = [
     link: '/contact',
     title: 'Contact page',
   },
+  {
+    id: 4,
+    link: '/users',
+    title: 'Our Users',
+  },
 ];
 
 const Navigation = () => {
