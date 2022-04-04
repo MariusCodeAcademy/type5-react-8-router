@@ -10,7 +10,7 @@ const Users = () => {
       <p>This is list of our users</p>
       <div className='grid'>
         {usersDb.map((uObj) => (
-          <SingleUserCard key={uObj.id} name={uObj.username} />
+          <SingleUserCard key={uObj.id} name={uObj.username} id={uObj.id} />
         ))}
       </div>
     </div>
