@@ -10,7 +10,9 @@ const SingleUser = () => {
   useEffect(() => {
     console.log('usersDb ===', usersDb);
     // is usersDb masyvo, atrinkti ta objekta kurio id === userId
+    const foundUser = usersDb.find((uObj) => uObj.id === +userId);
     // suradus ta objekta nustatyti currentUser lygu tam objekui
+    setCurrentUser(foundUser);
   }, []);
 
   return (

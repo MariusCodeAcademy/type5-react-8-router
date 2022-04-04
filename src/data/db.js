@@ -15,3 +15,8 @@ export const usersDb = [
     bio: 'Jill has a guitar.',
   },
 ];
+// const userId = '3';
+
+// const foundUser = usersDb.find((uObj) => uObj.id === +userId);
+
+// console.log('foundUser ===', foundUser);
