@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 
 const SingleUserCard = (props) => {
-  return <Link to='/users/single-user'>SingleUserCard</Link>;
+  return (
+    <Link className='card' to='/users/single-user'>
+      User: {props.name}
+    </Link>
+  );
 };
 
 export default SingleUserCard;
