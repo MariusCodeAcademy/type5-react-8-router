@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const navData = [
   {
@@ -27,9 +27,9 @@ const Navigation = () => {
   return (
     <nav>
       {navData.map((navObj) => (
-        <Link key={navObj.id} className='nav-link' to={navObj.link}>
+        <NavLink exact key={navObj.id} className='nav-link' to={navObj.link}>
           {navObj.title}
-        </Link>
+        </NavLink>
       ))}
     </nav>
   );

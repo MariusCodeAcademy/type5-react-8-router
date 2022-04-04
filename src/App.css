@@ -7,6 +7,10 @@ a {
   padding: 10px 20px;
   background-color: #fcfcfc;
 }
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
 
 .card {
   border: 1px solid #000;
