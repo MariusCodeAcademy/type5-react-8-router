@@ -1,6 +1,7 @@
 import SingleUserCard from '../components/SingleUserCard';
 import { usersDb } from '../data/db';
 import { useState, useEffect } from 'react';
+import { getData } from './../utils/helper';
 export const usersUrl = 'https://jsonplaceholder.typicode.com/users';
 
 const Users = () => {
@@ -13,8 +14,7 @@ const Users = () => {
   }, []);
 
   const getUsers = async () => {
-    const resp = await fetch(usersUrl);
-    const usersFromApi = await resp.json();
+    const usersFromApi = await getData(usersUrl);
     console.log('usersFromApi ===', usersFromApi);
     setUsersArr(usersFromApi);
   };

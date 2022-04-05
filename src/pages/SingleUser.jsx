@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { usersDb } from './../data/db';
 import { usersUrl } from './Users';
+import { getData } from './../utils/helper';
 
 const SingleUser = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -10,15 +11,15 @@ const SingleUser = () => {
   console.log('userId ===', userId);
 
   useEffect(() => {
-    console.log('usersDb ===', usersDb);
-    // is usersDb masyvo, atrinkti ta objekta kurio id === userId
-    const foundUser = usersDb.find((uObj) => uObj.id === +userId);
-    // suradus ta objekta nustatyti currentUser lygu tam objekui
-    setCurrentUser(foundUser);
+    getSingleUser();
   }, []);
+
   // parsiusti vartotojo kurio id === userId
   // juos irasom i currentUser
-  const getSingleUser = async () => {};
+  const getSingleUser = async () => {
+    const userFound = await getData(`${usersUrl}/${userId}`);
+    setCurrentUser(userFound);
+  };
 
   if (!currentUser?.username) {
     console.log('user not found');
@@ -31,6 +32,8 @@ const SingleUser = () => {
       <h1>{currentUser && currentUser.username}</h1>
       <p>{currentUser?.website}</p>
       <p>{currentUser?.email}</p>
+      <p>Tel: {currentUser?.phone}</p>
+      <div>&#8594; &#x20AC; &#8364; €</div>
     </div>
   );
 };
