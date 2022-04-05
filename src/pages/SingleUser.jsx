@@ -6,6 +6,8 @@ import { getData } from './../utils/helper';
 
 const SingleUser = () => {
   const [currentUser, setCurrentUser] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
   const history = useHistory();
   const { userId } = useParams();
   console.log('userId ===', userId);
@@ -17,11 +19,17 @@ const SingleUser = () => {
   // parsiusti vartotojo kurio id === userId
   // juos irasom i currentUser
   const getSingleUser = async () => {
+    // prasideda loadingas
+    setIsLoading(true);
     const userFound = await getData(`${usersUrl}/${userId}`);
     setCurrentUser(userFound);
+    // baigiasi loadingas
+    setIsLoading(false);
   };
 
-  if (!currentUser?.username) {
+  if (isLoading) return <div>Loading...</div>;
+
+  if (!currentUser?.username && !isLoading) {
     console.log('user not found');
     // history.push('/404');
     return <div>User not found</div>;
